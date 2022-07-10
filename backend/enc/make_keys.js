@@ -1,9 +1,9 @@
 const { MongoClient, Binary } = require("mongodb");
 const { ClientEncryption } = require("mongodb-client-encryption");
 
-const eDB = "encryption";
-const eKV = "__keyVault";
-const keyVaultNamespace = `${eDB}.${eKV}`;
+const keyVaultDatabase = "encryption";
+const keyVaultCollection = "__keyVault";
+const keyVaultNamespace = `${keyVaultDatabase}.${keyVaultCollection}`;
 const secretDB = "PassManager";
 const secretCollection = "UserInformation";
 
@@ -35,7 +35,10 @@ async function run() {
   const uri = "mongodb+srv://burchy99:%2AJL0hn36%23%2AgC@passmanager.lkwxg.mongodb.net";
   const keyVaultClient = new MongoClient(uri);
   await keyVaultClient.connect();
-  const keyVaultColl = keyVaultDB.collection(eKV);
+  const keyVaultDB = keyVaultClient.db(keyVaultDatabase);
+
+  //await keyVaultDB.dropDatabase();
+  const keyVaultColl = keyVaultDB.collection(keyVaultCollection);
   await keyVaultColl.createIndex(
     { keyAltNames: 1 },
     {
@@ -99,7 +102,6 @@ async function run() {
     autoEncryption: {
       keyVaultNamespace,
       kmsProviders,
-      extraOptions,
       encryptedFieldsMap,
     },
   });
