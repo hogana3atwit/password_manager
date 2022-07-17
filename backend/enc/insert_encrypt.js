@@ -75,7 +75,6 @@ async function run() {
     autoEncryption: {
       keyVaultNamespace: keyVaultNamespace,
       kmsProviders: kmsProviders,
-      extraOptions: extraOptions,
       encryptedFieldsMap: encryptedFieldsMap,
     },
   });
