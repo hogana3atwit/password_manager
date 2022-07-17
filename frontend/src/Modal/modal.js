@@ -31,7 +31,7 @@ export const Modal = ({
             aria-labelledby="close-modal"
             className="_modal-close"
             onClick={closeModal}
-          >
+          > 
             <span id="close-modal" className="_hide-visual">
               Close
             </span>

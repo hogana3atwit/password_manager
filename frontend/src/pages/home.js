@@ -1,8 +1,8 @@
 import React from 'react'
 import logo from '../images/mainlogo.png';
 import mockup from '../images/MOCKUPS.png';
-import LogIN from  '../forms/loginFORM';
-import CreateForm from '../forms/createaccountForm'; 
+import LogIN from  '../Components/forms/loginFORM';
+import CreateForm from '../Components/forms/createaccountForm'; 
 import { useState } from 'react';
 import './home.css';
 
