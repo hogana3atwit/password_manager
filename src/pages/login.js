@@ -1,85 +1,102 @@
-import React from 'react'
-import { useState } from "react"
-import './css/login.css';
-import accountImage from '../images/accountsymbol.png';
+import React from 'react';
+import { useState, useEffect } from 'react'
+import { FaSignInAlt } from 'react-icons/fa'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { login, reset } from '../auth/authSlice'
 
-function Popup(props) {
-   
-    const initialValues = {username:"",password:""};
-    const [inputs, setInputs] = useState(initialValues);
 
-    const handleChange = (event) => { 
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs(values => ({ ...values, [name]: value }))
+function Login() {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  })
+
+  const { email, password } = formData
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  )
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
     }
 
-   async function checkValidation(event) {
-        event.preventDefault();
-        fetch('http://localhost:5000/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(inputs)
-        })
-        .then((response) => {
-            if(response.status===200)
-                {
-                    window.location.href = 'http://localhost:3000/Dashboard'
-                }
-        })
-        props.setTrigger(false)
-        if(props.trigger === true)
-            {
-                setInputs(initialValues);
-            }
-      }
+    if (isSuccess || user) {
+      navigate('/dashboard')
+    }
+
+    dispatch(reset())
+  }, [user, isError, isSuccess, message, navigate, dispatch])
+
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    const userData = {
+      email,
+      password,
+    }
+
+    dispatch(login(userData))
+  }
 
 
-    return (props.trigger) ? (
-        <div className="popup">
-            <div className="popup-inner">
-                <div className='closebutton_section'>
-                <button className="close-btn" onClick={() => props.setTrigger(false)} > X </button>
-                {props.children} 
-                <div className='accountImage'>
-                <img src={accountImage} className="App-AccountLogo" alt="logo" />
-                </div>
-                </div>
-               
-                <div className='login_section'>
-                <form onSubmit={checkValidation}>
-                    <ul>
-                 <li>   <label>Username:
-                        <input
-                            type="text"
-                            name="username"
-                            value={inputs.username}
-                            onChange={handleChange}
-                        />
-                    </label> </li> 
-                  <li>  
-                      <label for="pwd">Password:
-                          <input
-	    		    type="password"
-	    		    id="pwd"
-	    		    name="pwd"
-	    		    onChange={handleChange}
-      			/>
-                    </label> 
-                    </li>
-                 <li>   <input type="submit" /> </li> 
-                    </ul>
-                    
-                </form>
-                </div>
-            </div>
 
+  return (
+    <>
+      <section className='heading'>
+        <h1>
+          <FaSignInAlt /> Login
+        </h1>
+        <p>Login and start securing your Passwords</p>
+      </section>
 
-        </div>
+      <section className='form'>
+        <form onSubmit={onSubmit}>
+          <div className='form-group'>
+            <input
+              type='email'
+              className='form-control'
+              id='email'
+              name='email'
+              value={email}
+              placeholder='Enter your email'
+              onChange={onChange}
+            />
+          </div>
+          <div className='form-group'>
+            <input
+              type='password'
+              className='form-control'
+              id='password'
+              name='password'
+              value={password}
+              placeholder='Enter password'
+              onChange={onChange}
+            />
+          </div>
 
-    ) : "";
+          <div className='form-group'>
+            <button type='submit' className='btn btn-block'>
+              Submit
+            </button>
+          </div>
+        </form>
+      </section>
+    </>
+  )
 }
 
-export default Popup
+export default Login;

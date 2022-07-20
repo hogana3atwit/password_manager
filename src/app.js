@@ -8,6 +8,7 @@ import Home from "./pages/home";
 import LandingPage from './pages/landingPage';
 import PasswordGenerator from './pages/passwordGenerator'
 import PasswordList  from './pages/passwordList';
+import About from './pages/about.js';
 import "./App.css";
 
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={ <LandingPage /> } />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/about" element={<About />} />
             <Route path="/register" element={<Register />} />
             <Route path ="/generator" element={<PasswordGenerator />} />
             <Route path ="/list" element={<PasswordList />} />
