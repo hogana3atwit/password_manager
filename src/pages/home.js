@@ -1,10 +1,6 @@
 import React from 'react'
-import logo from '../images/mainlogo.png';
-import mockup from '../images/MOCKUPS.png';
-import LogIN from  '../Components/forms/loginFORM';
-import CreateForm from '../Components/forms/createaccountForm'; 
 import { useState } from 'react';
-import './home.css';
+import './css/home.css'
 
 // for buttons
 import styled from "styled-components";
@@ -52,27 +48,11 @@ function Home() {
   return (
 
       <div className="appmain">
-     <div className='main-header'>
-      <div className='nav-logo'>
-      <a href="http://localhost:3000" id="image">
-              <img src={logo} className="App-logo" alt="logo" />
-        </a>
-      </div>
-      <div className="inner">
-          <ul className="nav-links">
-            <li><Button onClick={() => setloginButtonPopup(true)}> Log In</Button> </li>   
-            <LogIN trigger={loginbuttonPopup} setTrigger={setloginButtonPopup}></LogIN> 
-            
-            <li><Button onClick={() => setcreateButtonPopup(true)}> Sign Up </Button> </li>   
-            <CreateForm trigger={createbuttonPopup} setTrigger={setcreateButtonPopup}></CreateForm> 
-           
-          </ul>
-        </div>
-     </div>
+    
 
      <div className='main-body'>
-      <img src={mockup} className="macMockup" alt="logo" />
-     </div>
+          <h1> HOME </h1>
+       </div>
 
    
     </div>

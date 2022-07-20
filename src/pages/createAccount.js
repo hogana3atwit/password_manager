@@ -1,42 +1,37 @@
 import React from 'react'
 import { useState } from "react"
-import './loginFORM.css';
+import { useEffect } from 'react';
+import './css/createAccount.css';
 import accountImage from '../images/accountsymbol.png';
 
 function Popup(props) {
-   
-    const initialValues = {username:"",password:""};
-    const [inputs, setInputs] = useState(initialValues);
+    const initialValues = {username:"",email:"",password:""};
+    const [formValues, setFormValues] = useState(initialValues);
+ 
 
     const handleChange = (event) => { 
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs(values => ({ ...values, [name]: value }))
+        const { name, value } = event.target;
+        setFormValues({ ...formValues, [name]: value });
     }
-
-   async function checkValidation(event) {
+  
+    function accountcreation(event) {
         event.preventDefault();
-        fetch('http://localhost:5000/login', {
+        fetch('http://localhost:5000/accountcreation', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(inputs)
-        })
-        .then((response) => {
-            if(response.status===200)
-                {
-                    window.location.href = 'http://localhost:3000/Dashboard'
-                }
+          body: JSON.stringify(formValues)
         })
         props.setTrigger(false)
-        if(props.trigger === true)
+        if(props.trigger == true)
             {
-                setInputs(initialValues);
+                setFormValues(initialValues);
             }
       }
 
 
+  
     return (props.trigger) ? (
         <div className="popup">
             <div className="popup-inner">
@@ -49,26 +44,33 @@ function Popup(props) {
                 </div>
                
                 <div className='login_section'>
-                <form onSubmit={checkValidation}>
+                <form onSubmit={accountcreation} >
                     <ul>
-                 <li>   <label>Username:
+                    <li>   <label>Username:
                         <input
                             type="text"
                             name="username"
-                            value={inputs.username}
+                            value={formValues.username }
                             onChange={handleChange}
                         />
                     </label> </li> 
-                  <li>  
-                      <label for="pwd">Password:
-                          <input
-	    		    type="password"
-	    		    id="pwd"
-	    		    name="pwd"
-	    		    onChange={handleChange}
-      			/>
-                    </label> 
-                    </li>
+                    <li>   <label>Email:
+                        <input
+                            type="text"
+                            name="email"
+                            value={formValues.email }
+                            onChange={handleChange}
+                        />
+                    </label> </li> 
+                 <li>   <label>Password:
+                        <input
+                            type="text"
+                            name="password"
+                            value={formValues.password }
+                            onChange={handleChange}
+                        />
+                    </label> </li> 
+           
                  <li>   <input type="submit" /> </li> 
                     </ul>
                     

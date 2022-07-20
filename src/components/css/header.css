@@ -1,0 +1,23 @@
+.header {
+    background-color: black;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 30% 70%;
+}
+
+.header_logo {
+    background-color: pink;
+}
+
+.header_main_Menu {
+    float: right;
+    background-color: blue;
+    color: black;
+}
+
+.header_logo_image
+    {
+        
+    }
