@@ -1,5 +1,5 @@
 .header {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     display: flex;
     align-items: center;
@@ -9,8 +9,8 @@
     margin: auto;
 }
 
-.header_main_Menu ul{
- background-color: blue;
+.header_main_Menu a {
+    color: white;
 }
 
 

@@ -4,9 +4,10 @@ import './css/landingPage.css'
 
 function landingPage() {
   return(
+    <div className='landingPage_Main'>
+<h1> Langing Page </h1>
 
-<h1> LANDING PAGE </h1>
-
+    </div>
   );
 }
 
