@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from "react"
-import { useEffect } from 'react';
 import './css/createAccount.css';
 import accountImage from '../images/accountsymbol.png';
 
@@ -24,7 +23,7 @@ function Popup(props) {
           body: JSON.stringify(formValues)
         })
         props.setTrigger(false)
-        if(props.trigger == true)
+        if(props.trigger === true)
             {
                 setFormValues(initialValues);
             }

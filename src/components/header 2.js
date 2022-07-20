@@ -18,11 +18,11 @@ function Header() {
 
   return (
     <div className="header">
-      <div className="header_logo">
-        <Link to="/"> <img className= "header_logo_image" src={LegionLogo} /> </Link>
-      </div>
       <div className = "header_main_Menu">
       <ul>
+      <li>
+              <Link to="/"> <img className= "header_logo_image" src={LegionLogo}  alt="Legion Logo"/> </Link>
+            </li>
         {user ? (
           <>
             <li>

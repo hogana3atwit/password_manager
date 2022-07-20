@@ -1,23 +1,19 @@
 .header {
     background-color: black;
     width: 100%;
-    margin: auto;
-    display: grid;
+    display: flex;
     align-items: center;
-    grid-template-columns: 30% 70%;
-}
-
-.header_logo {
-    background-color: pink;
 }
 
 .header_main_Menu {
-    float: right;
-    background-color: blue;
-    color: black;
+    margin: auto;
 }
 
-.header_logo_image
-    {
-        
-    }
+.header_main_Menu ul{
+ background-color: blue;
+}
+
+
+.header_logo_image {
+    height: 10vmin;
+}
