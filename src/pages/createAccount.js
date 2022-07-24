@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -6,7 +5,8 @@ import { toast } from 'react-toastify'
 import { FaUser } from 'react-icons/fa'
 import { register, reset } from '../auth/authSlice'
 
-function CreateAccount() {
+
+function Register() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +19,7 @@ function CreateAccount() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  const { user, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
 
@@ -57,7 +57,6 @@ function CreateAccount() {
       dispatch(register(userData))
     }
   }
-
 
 
   return (
@@ -126,4 +125,4 @@ function CreateAccount() {
   )
 }
 
-export default CreateAccount
+export default Register

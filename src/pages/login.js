@@ -4,10 +4,10 @@ import { FaSignInAlt } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { login, reset } from '../auth/authSlice'
+import { login, reset } from '../auth/authSlice.js'
 
 
-function Login() {
+function LoginForm() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -99,4 +99,4 @@ function Login() {
   )
 }
 
-export default Login;
+export default LoginForm;

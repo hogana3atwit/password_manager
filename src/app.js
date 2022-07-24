@@ -10,6 +10,7 @@ import PasswordGenerator from './pages/passwordGenerator'
 import PasswordList  from './pages/passwordList';
 import About from './pages/about.js';
 import "./App.css";
+import Footer from './components/footer.js';
 
 
 
@@ -29,6 +30,7 @@ function App() {
             <Route path ="/generator" element={<PasswordGenerator />} />
             <Route path ="/list" element={<PasswordList />} />
           </Routes>
+          <Footer />
         </div>
       </Router>
 
