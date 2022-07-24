@@ -1,7 +1,6 @@
 {
   "name": "password-manager",
   "version": "0.1.0",
-  "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
     "@faker-js/faker": "^6.1.1",
