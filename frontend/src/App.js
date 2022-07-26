@@ -4,11 +4,14 @@ import "react-toastify/dist/ReactToastify.css";
 import Register from "./pages/register";
 import Home from "./pages/home";
 import Login from "./pages/login";
+import Header from "./components/header";
 
 function App() {
   return (
     <>
+    
       <Router>
+      <Header />
         <div className="container">
           <Routes>
             <Route path="/home" element={<Home />} />
