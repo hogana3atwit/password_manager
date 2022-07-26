@@ -11,43 +11,48 @@ function Header() {
 
   const onLogout = () => {
     dispatch(logout());
+    console.log("Hit Log out button Header")
     dispatch(reset());
+    console.log("Hit Reset button Header")
     navigate("/");
   };
+
+  const goToRegister = () =>
+    {
+      navigate("/register")
+    }
 
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/"><img src={compLogo} alt="Spartan Logo" /> </Link>
+        <Link to="/"><img className="complogo" src={compLogo} alt="Spartan Logo" /> </Link>
       </div>
-      <ul>
+    <div className="menuSection">
+    <ul>
         {user ? (
-          <>
-            <li>
-              <Link to="/login">About</Link>
-            </li>
-            <li>
-              <button className="btn" onClick={onLogout}>
-                Logout
-              </button>
-            </li>
-          </>
+          <li>
+            <button className='btn' onClick={onLogout}>
+         Logout
+            </button>
+          </li>
         ) : (
           <>
             <li>
-              <Link to="/login">About</Link>
+              <Link to='/login'>
+                  Login
+              </Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
+              <Link to='/register'>
+                  Register
+              </Link>
             </li>
           </>
         )}
       </ul>
+      </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

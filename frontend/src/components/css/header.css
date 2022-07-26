@@ -1,3 +1,31 @@
 .header {
     background-color: #242424;
+    width: 100%;
+    height: 25%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.complogo
+{
+    width: 25vh;
+
+}
+
+.logo{
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuSection{
+   background-color: aqua;
+   display: flex;
+   justify-items: auto;
+   float: right;
+}
+li{
+    display: inline;
+    float: right;
 }

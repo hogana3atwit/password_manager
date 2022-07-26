@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { response } from 'express'
 
 const API_URL = '/api/users/'
 
@@ -27,6 +28,7 @@ const login = async (userData) => {
 // Logout user
 const logout = () => {
   localStorage.removeItem('user')
+  console.log("Removed User")
 }
 
 const authService = {

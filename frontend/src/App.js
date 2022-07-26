@@ -5,6 +5,7 @@ import Register from "./pages/register";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Header from "./components/header";
+import DashboardPage from "./pages/dashboard"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="/home" element={<Home />} />
+            <Route path="/" element={<DashboardPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>

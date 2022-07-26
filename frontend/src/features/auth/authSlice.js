@@ -17,9 +17,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (user, thunkAPI) => {
     try {
-      console.log("Posting Registered User")
       return await authService.register(user)
-      console.log("It Worked")
     } catch (error) {
       const message =
         (error.response &&
@@ -47,6 +45,7 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
 
 export const logout = createAsyncThunk('auth/logout', async () => {
   await authService.logout()
+  console.log("Logout Finish")
 })
 
 export const authSlice = createSlice({
