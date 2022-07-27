@@ -29,3 +29,10 @@ window.addEventListener('DOMContentLoaded', () => {
 		setBackgroundDOMInfo
 	);
 });
+
+function autofill() {
+	chrome.runtime.sendMessage({
+		from: 'popup',
+		message: 'autofill;
+	});
+}

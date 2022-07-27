@@ -22,4 +22,10 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
 	  };
 	  response(domInfo);
   }
+  if ((msg.from === 'content') && (msg.subject === 'autofill')){
+	 var autofill = {
+		 user: username,
+		 pass: password
+	 };
+	  response(autofill);
 });
