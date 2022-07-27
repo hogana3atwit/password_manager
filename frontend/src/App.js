@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
@@ -53,6 +54,14 @@ function App() {
         </span>
       </header>
     </div>
+=======
+
+function App() {
+  return (
+   <div>
+    <h1> MY APP </h1>
+   </div>
+>>>>>>> parent of e4e15ff5 (Fixed API Push & Added React + UI)
 =======
 
 function App() {
