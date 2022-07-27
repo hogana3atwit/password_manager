@@ -23,7 +23,7 @@ const loginUser = asyncHandler( async(req,res) => {
 })
 
 const registerUser = asyncHandler( async (req,res) => {
-    const {firstname,lastname, username,email,password} = req.body
+    const {firstname,lastname, username,email,password,confirmPassword } = req.body
     if(!firstname || !lastname || !username || !email || !password ) {
         res.status(400)
         throw new Error('Fill in all feilds')
@@ -34,7 +34,7 @@ const registerUser = asyncHandler( async (req,res) => {
     const usernameExists = await User.findOne({username})
     const emailExists = await User.findOne({email})
 
-    if(usernameExists || emailExists)
+    if(username || emailExists)
         {
             res.status(400)
             throw new Error('This Account is already registered')
