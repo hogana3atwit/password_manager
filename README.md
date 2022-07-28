@@ -100,7 +100,6 @@ https://www.youtube.com/watch?v=SqcZT2kLEuM
 
 ## Contributors
 
-* Andrew Hogan (hogana3@wit.edu), full-stack developer for password generation and database creation contributor
-* Alex Grant (granta5@wit.edu), full-stack developer for password list viewing and functionality
-* Lo-Badal Burch (burchc@wit.edu), front-end developer for dashboard pages and database creation contributor
+* Andrew Hogan (hogana3@wit.edu), full-stack developer for password generation, database, and extension
 * Emmanuel "Manny" Chalumeau (chalumeaue@wit.edu), front-end developer for home/login/create account pages and architecture designer
+* J Tarness (tarnessj@wit.edu), full-stack developer for browser extension and vulnerability model creation + training + testing

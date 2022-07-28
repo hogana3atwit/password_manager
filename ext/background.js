@@ -17,6 +17,7 @@ getAPI()
 console.log(username);
 
 chrome.runtime.onMessage.addListener((msg, sender, response) => {
+<<<<<<< HEAD
 	//if ((msg.from === 'popup') && (msg.subject === 'autofill')){
 		//var autofill = {
 		//	user: username,
@@ -32,4 +33,22 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
 	 	};
 	  	response(autofill);
 	}
+=======
+  if ((msg.from === 'content') && (msg.subject === 'showPageAction')) {
+    chrome.pageAction.show(sender.tab.id);
+  }
+  if ((msg.from === 'popup') && (msg.subject === 'BackgroundDomInfo')) {
+	  var domInfo = {
+		  da: val
+	  };
+	  response(domInfo);
+  }
+  if ((msg.from === 'content') && (msg.subject === 'autofill')){
+	 var autofill = {
+		 user: username,
+		 pass: password
+	 };
+	  response(autofill);
+   }
+>>>>>>> refs/remotes/origin/main
 });
