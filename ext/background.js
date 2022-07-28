@@ -28,4 +28,5 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
 		 pass: password
 	 };
 	  response(autofill);
+   }
 });

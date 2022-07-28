@@ -33,6 +33,6 @@ window.addEventListener('DOMContentLoaded', () => {
 function autofill() {
 	chrome.runtime.sendMessage({
 		from: 'popup',
-		message: 'autofill;
+		message: 'autofill'
 	});
 }
