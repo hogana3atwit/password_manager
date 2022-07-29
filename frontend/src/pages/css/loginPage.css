@@ -1,0 +1,31 @@
+.loginPageContainer{ 
+    margin: auto;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    width: 100%;
+    height: 100vh;
+    background-color: blue;
+}
+
+.lpc_middle{
+display: grid;
+grid-template-rows: 50% 50%;
+margin: auto;
+width: 100%;
+}
+
+.topSectionForm{
+margin: auto;
+display: grid;
+grid-template-columns: 50% 50%;
+
+}
+.mainSectionForm{
+    margin: auto;
+}
+
+#topSectionForm h1{
+    margin: auto;
+}
+
+
