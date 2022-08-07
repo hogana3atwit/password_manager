@@ -1,3 +1,8 @@
+let password;
+let username;
+let url;
+let threat;
+
 async function getAPI() {
 	let response = await fetch("http://localhost:5000/api/passwords");
 	let api = await response.json();
@@ -6,26 +11,43 @@ async function getAPI() {
 	return [password,username];
 }
 
-let password;
-let username;
+async function getThreat(url){
+	url = url.replace(/(^\w+:|^)\/\//, '');
+	//if(url.slice(url.length -1) === '/'){
+		url = url.slice(0, url.length -1)
+	//}
+	let response = await fetch("http://localhost:5001/check/"+url);
+	if(response.status === 200) {
+		let api = await response.json();
+		let threat = api["result"];
+		return threat;
+	}
+	let threat = Math.floor(Math.random() * 3) + 1;
+	return threat;
+}
+
 getAPI()
  .then(message => {
 	 password = message[0];
 	 username = message[1];
 });
 
-console.log(username);
+const setURL = info => {
+	url = info.url;
+	getThreat(url).then(message => {threat = message;});
+};
 
 chrome.runtime.onMessage.addListener((msg, sender, response) => {
-<<<<<<< HEAD
-	//if ((msg.from === 'popup') && (msg.subject === 'autofill')){
-		//var autofill = {
-		//	user: username,
-		 //	pass: password
-	 	//};
-	  	//response(autofill);
-	//	console.log(username);
-	//}
+	if ((msg.from === 'popup') && (msg.subject === 'GetThreat')){
+		chrome.tabs.query({active: true, currentWindow: true}, tabs => {
+			chrome.tabs.sendMessage(tabs[0].id,
+				{from: "background",subject: "getURL"}, setURL);
+		});
+		var threatInfo = {
+			threat: threat
+	 	};
+	  	response(threatInfo);
+	}
 	if ((msg.from === 'content') && (msg.subject === 'autofill')){
 		var autofill = {
 			user: username,
@@ -33,22 +55,4 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
 	 	};
 	  	response(autofill);
 	}
-=======
-  if ((msg.from === 'content') && (msg.subject === 'showPageAction')) {
-    chrome.pageAction.show(sender.tab.id);
-  }
-  if ((msg.from === 'popup') && (msg.subject === 'BackgroundDomInfo')) {
-	  var domInfo = {
-		  da: val
-	  };
-	  response(domInfo);
-  }
-  if ((msg.from === 'content') && (msg.subject === 'autofill')){
-	 var autofill = {
-		 user: username,
-		 pass: password
-	 };
-	  response(autofill);
-   }
->>>>>>> refs/remotes/origin/main
 });

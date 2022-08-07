@@ -10,5 +10,11 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
 		  subject: 'autofill'},
 		  autofillInfo
 	  );
-  }
+    }
+	if((msg.from === 'background') && (msg.subject === 'getURL')){
+		var urlInfo = {
+			url: window.location.href
+		};
+		response(urlInfo);
+	}
 });
