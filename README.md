@@ -96,7 +96,7 @@ This password manager made use of the MERN stack architecture and the major feat
 
 ## Demo Video
 
-https://www.youtube.com/watch?v=SqcZT2kLEuM
+https://youtu.be/6NOpP1QlWIM
 
 ## Contributors
 
