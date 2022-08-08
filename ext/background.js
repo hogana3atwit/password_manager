@@ -22,7 +22,7 @@ async function getThreat(url){
 		let threat = api["result"];
 		return threat;
 	}
-	let threat = Math.floor(Math.random() * 3) + 1;
+	let threat = 3;
 	return threat;
 }
 
