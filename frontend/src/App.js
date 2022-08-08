@@ -1,26 +1,21 @@
+import React from 'react';
+import Login from "./pages/loginPage";
+import Header from "./components/header"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Header from './components/header'
-import './App.css'
-import About from "./pages/about";
-import LoginPage from './pages/login'
+
+import './App.css';
+
 function App() {
-  return (  
-    <>
-    
-    <Router>
-    <Header />
-      <div className="container">
-        <Routes>
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<LoginPage />} />
-        </Routes>
-      </div>
-    </Router>
-    <ToastContainer />
-  </>
- );
+  return (
+<Router>
+      <Header />
+        <div className="container">
+          <Routes>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </Router>
+  );
 }
 
 export default App;
