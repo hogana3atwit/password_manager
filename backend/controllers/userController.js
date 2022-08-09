@@ -34,7 +34,7 @@ const registerUser = asyncHandler( async (req,res) => {
     const usernameExists = await User.findOne({username})
     const emailExists = await User.findOne({email})
 
-    if(username || emailExists)
+    if(usernameExists || emailExists)
         {
             res.status(400)
             throw new Error('This Account is already registered')
@@ -74,8 +74,6 @@ const generateToken = (id) =>
         expiresIn: '30d'
     })
 }
-
-
 
 const getUser = asyncHandler( async (req,res) => {
   const {_id,username,email} = await User.findById(req.user.id)

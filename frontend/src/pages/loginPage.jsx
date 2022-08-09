@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-
 import { login, reset } from '../features/auth/authSlice'
 
 
@@ -17,7 +16,7 @@ function Login() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isError, isSuccess, message } = useSelector(
+  const { user, isError, isSuccess } = useSelector(
     (state) => state.auth
   )
 
@@ -28,7 +27,7 @@ function Login() {
     }
 
     dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+  }, [user, isError, isSuccess, navigate, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
