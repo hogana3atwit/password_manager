@@ -16,17 +16,17 @@ function Header() {
           <>
           <li id='headerli'>
               <Link to='/about'>
-                About
+                ABOUT
               </Link>
             </li>
             <li id='headerli'>
               <Link to='/login'>
-                Login
+                LOGIN
               </Link>
             </li>
             <li id='headerli'>
               <Link to='/register'>
-                Register
+                JOIN
               </Link>
             </li>
           </>

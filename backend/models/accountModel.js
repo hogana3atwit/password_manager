@@ -1,19 +1,32 @@
 const mongoose = require("mongoose");
 
-const passwordSchema = mongoose.Schema({
+const accountsSchema = mongoose.Schema({
     user:{
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
     },
-    text:
+    website:
         {
             type: String,
             required:[true,"Please add a text value"],
+            unique: true
         },
-    text:
+    username:
     {
         type: String,
         required:[true,"Please add a text value"],
+        unique: true
+    },
+    password:
+    {
+        type: String,
+        required:[true,"Please add a text value"],
+        unique: true
     }
-})
+},
+{
+    timestamps:true
+});
+
+module.exports = mongoose.model('Accounts',accountsSchema)

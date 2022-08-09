@@ -4,7 +4,14 @@ import React from 'react';
 function DashboardPage() {
   return (
     <>
-    <h1> Dashboard </h1>
+      <div className="dashboardContainer">
+          <div className='dashboardNav'>
+
+          </div>
+          <div className='dashboardSection'>
+            
+          </div>
+      </div>
     </>
   )
 }

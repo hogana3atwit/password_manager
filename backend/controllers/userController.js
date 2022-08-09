@@ -23,7 +23,7 @@ const loginUser = asyncHandler( async(req,res) => {
 })
 
 const registerUser = asyncHandler( async (req,res) => {
-    const {firstname,lastname, username,email,password,confirmPassword } = req.body
+    const {firstname,lastname, username,email,password } = req.body
     if(!firstname || !lastname || !username || !email || !password ) {
         res.status(400)
         throw new Error('Fill in all feilds')
