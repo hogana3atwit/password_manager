@@ -1,0 +1,36 @@
+.loginPageContainer {
+    width: 100%;
+    height: 100vh;
+    background-color: #242424;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginSection {
+    width: 60%;
+    height: 50vh;
+    margin: auto;
+    background-color: dimgray;
+    display: grid;
+    grid-template-rows: 25% 75%;
+    justify-content: center;
+}
+
+.loginHeading {
+    margin: auto;
+    display: grid;
+    text-align: center;
+    color: white;
+}
+
+.loginForm {
+    display: grid;
+    justify-content: center;
+}
+
+.login-form-group
+    {
+    display: grid;
+    justify-content: center;
+    }

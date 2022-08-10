@@ -1,0 +1,32 @@
+.lpMainContainer {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #242424;
+    display: grid;
+    justify-content: space-evenly;
+}
+
+.lpROW1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.lpROW2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.lpROW3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}

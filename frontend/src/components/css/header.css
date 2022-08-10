@@ -1,0 +1,44 @@
+.header {
+    margin: auto;
+    background-color: #242424;
+    display: grid;  
+    grid-template-columns: 50% 50%; 
+    width: 100%;
+    height: 10vh;
+}
+
+.logo {
+display: flex;
+align-items: center;
+padding-left: 5%;
+}
+.compLogo {
+    margin: auto;
+    width: 30vw;
+    vertical-align: auto;
+}
+
+.headerMenu {
+margin: auto;
+display: flex;
+justify-content: center;
+
+}
+.headerMenuUL{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+li {
+    display: inline;
+    margin: auto;
+    padding: 14px 16px;
+    font-size:30px;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+}
+

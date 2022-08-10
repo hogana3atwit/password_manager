@@ -1,0 +1,37 @@
+.dbContainer {
+    margin: auto;
+    width: 75%;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    justify-content: center;
+    align-content: center;
+}
+
+.dbNAVBAR {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.dbPMSection {
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+}
+
+ul#dbNAVBAR {
+    display: grid;
+   justify-content: center;
+    align-content: center;
+    text-align: center;
+    background-color: brown;
+}
+
+ul#dbNAVBAR li {
+    font-size: medium;
+    background-color: aqua;
+}
